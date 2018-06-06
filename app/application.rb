@@ -17,7 +17,7 @@ class Application
       end
     elsif req.path.match(/add/)
       item_to_add = req.params["item"]
-      @@items.contain? item_to_add ? @@cart << item_to_add : "Error"
+      @@items.include? item_to_add ? @@cart << item_to_add : "Error"
     elsif req.path.match(/search/)
       search_term = req.params["q"]
       resp.write handle_search(search_term)
